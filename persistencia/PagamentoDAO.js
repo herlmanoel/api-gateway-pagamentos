@@ -11,6 +11,11 @@ class PagamentoDao {
     buscaPorId = function (id, callback) {
         this._connection.query("select * from pagamentos where id = ?", [id], callback);
     }
+    
+    atualiza = function atualiza(pagamento, callback) {
+        this._connection.query(`UPDATE pagamentos SET status = ? WHERE id = ?`, 
+            [pagamento.status, pagamento.id], callback);
+    }
 
 }
 
